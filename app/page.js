@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import Filters from '../components/Filters'
 import PropertyCard from '../components/PropertyCard'
-import MapView from '../components/MapView'
+// import MapView from '../components/MapView'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic';
+const MapView = dynamic(() => import('../components/MapView'), { ssr: false });
 
 export default function Home() {
   const [properties, setProperties] = useState([])
